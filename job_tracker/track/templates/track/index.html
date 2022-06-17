@@ -1,0 +1,13 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'track/style.css' %}">
+
+{% if latest_question_list %}
+    <ul>
+    {% for application in latest_application_list %}
+    <li><a href="{% url 'track:detail' question.id %}">{{ application.company }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No job applications are available.</p>
+{% endif %}
+<!-- u made it to index :) -->
