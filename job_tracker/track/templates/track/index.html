@@ -1,10 +1,12 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'track/style.css' %}">
-
-{% if latest_question_list %}
+<li><a href="{% url 'track:index' %}">Test</a></li> 
+<!-- change to add new job application -->
+{% if not latest_application_list %}
     <ul>
     {% for application in latest_application_list %}
-    <li><a href="{% url 'track:detail' question.id %}">{{ application.company }}</a></li>
+    <li><a href="{% url 'track:index' application.id %}">{{ application.company }}</a></li>
+    <!-- change to view the clicked upon specific job application -->
     {% endfor %}
     </ul>
 {% else %}
