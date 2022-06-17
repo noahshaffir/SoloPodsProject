@@ -21,7 +21,6 @@ class Profile(models.Model):
 
 class Application(models.Model):
 
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     company = models.CharField(max_length=100, blank=False, default="LCS")
     position = models.CharField(max_length=100, blank=False, default="Developer")
     date_applied = models.DateField()
@@ -29,4 +28,11 @@ class Application(models.Model):
     cover_letter = models.URLField(max_length=350, blank=True) #change to file upload if time permits
     class Meta:
          ordering = ['-date_applied']
+    # def __str__(self):
+    #     return f"""Company: {self.company}
+    #     Position: {self.position}
+    #     Date applied: {self.date_applied}
+    #     Resume: {self.resume}
+    #     Cover letter: {self.cover_letter}
+    #     """
     

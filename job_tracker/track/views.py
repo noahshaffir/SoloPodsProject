@@ -11,6 +11,10 @@ class ApplicationListView(ListView):
     def get_queryset(self):
         
         return Application.objects.filter().order_by('-date_applied')
-class SpecificApplicationView(DetailView):
+class SpecificApplicationView(ListView):
     model = Application
     template_name = 'track/detail.html'
+    context_object_name = 'application'
+    def get_queryset(self):
+        
+        return Application.__str__(self)
